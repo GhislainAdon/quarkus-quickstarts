@@ -33,9 +33,10 @@ steps:
 ###############################################################################
 - name: initSdk
   group: build
-  image: gradle:latest
+  image: gradle:jdk10
   commands:
-  - gradle -p sdk initSdk
+  - gradle assemble
+  - gradle check
 
 ###############################################################################
 #                                BUILD MODULES
