@@ -33,10 +33,11 @@ steps:
 ###############################################################################
 - name: initSdk
   group: build
-  image: gradle:jdk10
+  image: maven:3-jdk-10
   commands:
-  - gradle assemble
-  - gradle check
+  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+  - mvn test -B
+  - mvnw package -Pnative
 
 ###############################################################################
 #                                BUILD MODULES
